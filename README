@@ -6,6 +6,7 @@ This is my awesome window manager configuration files and themes
 Based on copycat-killer's [holo](https://github.com/copycat-killer/awesome-copycats) theme
 
 Noteable changes and features:
+
 * Added support for Lenovo W530 specific buttons
   * Volume buttons
   * Audio/mic mute
