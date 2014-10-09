@@ -54,7 +54,7 @@ end
 run_once("unclutter")
 run_once("compton")
 run_once("xmodmap ~/.xmodmap")
-run_once("xautolock -time 5 -locker lock");
+run_once("xautolock -detectsleep -time 5 -locker lock -notify 30 -notifier 'notify-send -u critical -t 10000 -- \"Locking screen in 30 seconds\"'");
 run_once("xrdb ~/.Xresources");
 run_once("redshift -l 30.267:-97.743");
 run_once("synergy")
