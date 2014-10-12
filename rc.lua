@@ -57,7 +57,9 @@ run_once("xmodmap ~/.xmodmap")
 run_once("xautolock -detectsleep -time 5 -locker lock -notify 30 -notifier 'notify-send -u critical -t 10000 -- \"Locking screen in 30 seconds\"'");
 run_once("xrdb ~/.Xresources");
 run_once("redshift -l 30.267:-97.743");
-run_once("synergy")
+run_once("xcompmgr");
+-- run_once("xcompmgr -cF");
+-- run_once("synergy")
 -- }}}
 
 -- {{{ Variable definitions
@@ -734,9 +736,16 @@ awful.rules.rules = {
 
     { rule = { class = "MPlayer" },
           properties = { floating = true } },
+    
+    { rule = { instance = "crx_nckgahadagoaajjgafhacjanaoiihapd" },
+        properties = { floating = true , tag = tags[1][7]}},
 
-    { rule = { class = "crx_nckgahadagoaajjgafhacjanaopd" },
-          properties = { floating = true, tag = tags[1][4] } },
+    { rule = { instance = "crx_nckgahadagoaajjgafhacjanaopd" },
+        properties = { floating = true },
+        callback = function(c)
+            -- Show to titlebar else you may not know who you're talking with.
+            awful.titlebar.add(c, { modkey = modkey })
+        end },
 
     { rule = { class = "Dwb" },
           properties = { tag = tags[1][1] } },
